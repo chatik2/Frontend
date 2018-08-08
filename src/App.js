@@ -60,20 +60,19 @@ class App extends Component {
     console.log(this.state.uid)
 
     console.log(this.props.tracks);
-  //   var list = axios.post('http://138.197.146.14/new_msg'
-  //     ).then(response => { 
-  //     console.log(response);
-  //     this.setState({ messages: response.data });
-  //   })
-  //   .catch(error => {
-  //       console.log(error.response)
-  //   });
-  //   console.log(JSON.parse(localStorage.getItem("KeyForReactApp")));
 
-  var list = axios.post('http://138.197.146.14/new_msg');
-  console.log(list);
-
+  var headers = {
+      'uid': JSON.parse(localStorage.getItem("KeyForReactApp"))
   }
+
+axios.defaults.headers.common['uid'] = JSON.parse(localStorage.getItem("KeyForReactApp"));
+axios.defaults.headers.post['Content-Type'] = 'application/plaintext';
+
+var data = "text"
+axios.post('http://138.197.146.14/new_msg', data);
+
+  
+}
 
   render() {
     return (
