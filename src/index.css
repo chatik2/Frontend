@@ -1,3 +1,6 @@
+body {
+    background: #F0F0EE;
+}
 .mytext{
     border:0;padding:10px;background:whitesmoke;
 }
@@ -27,6 +30,7 @@
 }
 .contForInputs{
     margin-bottom: 10px;
+    margin-left: 10px;
 }
 .macro{
     margin-top:5px;width:79%;border-radius:5px;padding:5px;display:flex;
@@ -40,22 +44,24 @@
 .frame{
     background:#e0e0de;
     height:450px;
-    
+    margin: 0 auto;
+    margin-top: 25px;
     padding: 10px;
-    width: 400px;
+    width: 800px;
     height: 500px;
     position: relative;
+    padding-top: 10px;
 }
 .input {
      background: whitesmoke no-repeat center url('http://www.defaulticon.com/images/icons32x32/chat-alt-1.png?itok=uMgez8sy');padding: 10px;font-size: 21px;border-radius: 50%;
      width: 50px;
      height: 50px;
      position: absolute;
-     right: 20px;
+     right: 37px;
      bottom: 2px;
 }
 .root{
-      width: 400px !important;
+    padding-top: 10px;
 }
 .frame > div:last-of-type{
     position:absolute;bottom:0;width:100%;display:flex;
@@ -74,8 +80,16 @@ ul {
     display:flex;
     flex-direction: column;
     top:0;
-    overflow: auto;
+    overflow-y: auto;
     height: 400px;
+    word-wrap: break-word;
+}
+.li{
+    font-weight: 400;
+    padding: 5px;
+}
+.li:nth-child(odd){
+    background: #F0F0EE;
 }
 .msj:before{
     width: 0;
@@ -114,3 +128,58 @@ input:focus{
 :-moz-placeholder { /* Firefox 18- */
     color: #d4d4d4;
 }  
+.textForName{
+    position: absolute;
+    bottom: -75px;
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    padding:10px;
+    width: 80%;
+    left: 24px;
+}
+.absolSpan{
+    position: absolute;
+    bottom: -26px;
+    font-size: 13px;
+    left: 27px;
+
+}
+.btnForName{
+     background: #fff no-repeat center url('http://www.defaulticon.com/images/icons32x32/user-refresh.png?itok=fNn-LOcd');padding: 10px;font-size: 21px;border-radius: 50%;
+     width: 50px;
+     height: 50px;
+     position: absolute;
+     right: 20px;
+     border: 0;
+     bottom: -76px;
+}
+.author{
+    font-size: 13px;
+    font-weight: 700;
+
+}
+.scroll{
+    padding-top: 10px;
+}
+.inputTwo {
+    position: absolute;
+    left: 0;
+}
+.date{
+    font-size: 9px;
+    float: right;
+}
+
+@media screen and (max-width: 886px)  {
+    .frame{
+        width: 80%;
+        
+    }
+    .btnForName{
+     right: 0px;
+}
+    .input{
+    right: 25px;
+
+    }
+}
