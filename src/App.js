@@ -14,12 +14,20 @@ class App extends Component {
 
   addTrack() {
       axios.defaults.headers.post['uid'] = JSON.parse(localStorage.getItem("KeyForReactApp"));
-      axios.defaults.headers.post['Content-Type'] = 'application/plaintext';
+      axios.defaults.headers.post['Content-Type'] = 'application/plaintext; charset=utf-8';
       var data = this.trackInput.value;
-      axios.post('http://138.197.146.14/new_msg', data);
-      window.location.reload();
-      localStorage.setItem('input', '')
-      this.trackInput.value = '';
+      var headers = 
+      {
+        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
+        'Content-Type' : 'application/plaintext; charset=utf-8',
+        'type' : 'web',
+        'uid': JSON.parse(localStorage.getItem("KeyForReactApp"))
+      }
+
+      axios.post('http://138.197.146.14/new_msg', data, headers);
+     this.addTrack.value = '';
   }
 
   updateUser() {
@@ -28,7 +36,7 @@ class App extends Component {
     axios.defaults.headers.post['Content-Type'] = 'application/plaintext';
     var data1 = this.nameInput.value;
     axios.post('http://138.197.146.14/new_name', data1);
-    window.location.reload();
+    this.nameInput.value = '';
   }
 
   componentWillMount() {
@@ -52,7 +60,7 @@ class App extends Component {
       "Access-Control-Allow-Origin" : "*",
       "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
-      'Content-Type' : 'application/plaintext;',
+      'Content-Type' : 'application/plaintext; charset=utf-8',
       'type' : 'web',
       'uid': JSON.parse(localStorage.getItem("KeyForReactApp"))
     }
@@ -90,12 +98,6 @@ class App extends Component {
 
   }
 
-  componentDidMount() {
-    var mytext = document.getElementById('mytext');
-      mytext.addEventListener('change', function Fun (argument) {
-      localStorage.setItem('input', mytext.value);
-    })
-  }
 
 
   render() {
