@@ -27,7 +27,11 @@ class App extends Component {
       }
 
       axios.post('http://138.197.146.14/new_msg', data, headers);
-     this.addTrack.value = '';
+       this.trackInput.value = '';
+       setInterval(function fresh() {
+         window.location.reload();
+      } , 1150);
+
   }
 
   updateUser() {
@@ -37,6 +41,10 @@ class App extends Component {
     var data1 = this.nameInput.value;
     axios.post('http://138.197.146.14/new_name', data1);
     this.nameInput.value = '';
+    setInterval(function fresh() {
+         window.location.reload();
+      } , 1150);
+
   }
 
   componentWillMount() {
@@ -91,9 +99,6 @@ class App extends Component {
       console.log(error);
     });
 //
-    setInterval(function fresh() {
-       window.location.reload();
-    } , 20000);
 
 
   }
