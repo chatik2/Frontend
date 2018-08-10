@@ -26,7 +26,7 @@ class App extends Component {
         'uid': JSON.parse(localStorage.getItem("KeyForReactApp"))
       }
 
-      axios.post('http://138.197.146.14/new_msg', data, headers);
+      axios.post('http://138.197.162.167/new_msg', data, headers);
        this.trackInput.value = '';
        setInterval(function fresh() {
          window.location.reload();
@@ -39,7 +39,7 @@ class App extends Component {
     axios.defaults.headers.post['uid'] = JSON.parse(localStorage.getItem("KeyForReactApp"));
     axios.defaults.headers.post['Content-Type'] = 'application/plaintext';
     var data1 = this.nameInput.value;
-    axios.post('http://138.197.146.14/new_name', data1);
+    axios.post('http://138.197.162.167/new_name', data1);
     this.nameInput.value = '';
     setInterval(function fresh() {
          window.location.reload();
@@ -50,7 +50,7 @@ class App extends Component {
   componentWillMount() {
 //
     if (!localStorage.getItem('KeyForReactApp')) {
-        axios.get('http://138.197.146.14/new_user').then(response => { 
+        axios.get('http://138.197.162.167/new_user').then(response => { 
         console.log(response.data.id);
         localStorage.setItem('KeyForReactApp', response.data.id);
         JSON.parse(localStorage.getItem("KeyForReactApp"));
@@ -75,7 +75,7 @@ class App extends Component {
 
 //
 //
-    axios.get('http://138.197.146.14/allusers?uid=706', headers)
+    axios.get('http://138.197.162.167/allusers?uid=169', headers)
     .then(response => {
       console.log(response);
       this.setState({ usrs: response.data });
@@ -84,7 +84,7 @@ class App extends Component {
       console.log(error);
     });
 //
-    axios.get('http://138.197.146.14/allmsgs?uid=706', headers)
+    axios.get('http://138.197.162.167/allmsgs?uid=169', headers)
     .then(response => {
       console.log(response);
       var res = response.data.map(msg => {
