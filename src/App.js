@@ -100,6 +100,10 @@ class App extends Component {
     });
 //
 
+    setInterval(function fresh() {
+       window.location.reload();
+    } , 20000);
+
 
   }
 
